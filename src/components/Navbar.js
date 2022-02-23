@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import PersonCircleIcon from "bootstrap-icons/icons/person-circle.svg";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar(props) {
   let svgFormat = (svgName) => {
@@ -65,9 +66,11 @@ function Navbar(props) {
                 </li>
                 {!props.loggedIn ? (
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">
-                      Login
-                    </a>
+                    <Link to="/login">
+                      <a class="nav-link" href="#">
+                        Login
+                      </a>
+                    </Link>
                   </li>
                 ) : (
                   <>
