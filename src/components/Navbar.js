@@ -70,7 +70,7 @@ function Navbar(props) {
                     </a>
                   </li>
                 ) : (
-                  <React.StrictMode>
+                  <>
                     <li class="nav-item">
                       <a class="nav-link" href="#">
                         Routes
@@ -111,7 +111,7 @@ function Navbar(props) {
                         </li>
                       </ul>
                     </li>
-                  </React.StrictMode>
+                  </>
                 )}
               </ul>
             </div>
