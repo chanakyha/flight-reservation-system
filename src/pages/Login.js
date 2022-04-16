@@ -1,6 +1,13 @@
 import React, { useEffect } from "react";
 import GoogleLogoSVG from "../assets/svg/GoogleLogo.svg";
-import { auth, googleProvider, signInWithPopup } from "../server/firebase";
+import {
+  auth,
+  googleProvider,
+  signInWithPopup,
+  doc,
+  setDoc,
+  db,
+} from "../server/firebase";
 import toast from "react-hot-toast";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +17,17 @@ const Login = () => {
   let navigate = useNavigate();
   useEffect(() => {
     if (user) {
-      navigate("/");
+      setDoc(
+        doc(db, "users", user.uid),
+        {
+          uid: user.uid,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+        },
+        { merge: true }
+      ).then(() => {
+        navigate("/");
+      });
     }
 
     document.title = "Login";

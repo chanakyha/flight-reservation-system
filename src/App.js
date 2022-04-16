@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Loader from "./Loader";
+import Search from "./pages/Search";
 
 const App = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/loader" element={<Loader />} />
       </Routes>
     </div>

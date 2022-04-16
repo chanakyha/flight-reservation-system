@@ -10,9 +10,9 @@ const Dashboard = () => {
   const [roundTrip, setRoundTrip] = useState(0);
 
   const [entries, setEntries] = useState({
-    from: "",
-    to: "",
-    fromDate: "",
+    from: "Chennai",
+    to: "Delhi",
+    fromDate: "2003-09-21",
     toDate: "",
   });
 
@@ -44,6 +44,8 @@ const Dashboard = () => {
       toast.error("Please enter a valid To Date location");
       return;
     }
+
+    navigate("/search", { state: { ...entries, roundTrip: roundTrip } });
   };
 
   return (
